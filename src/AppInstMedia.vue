@@ -1,18 +1,26 @@
 <template>
-	<ul class="flashcard-list">
-	  <li
-	    v-for="(card, i) in instmedialist"
-	    v-bind:key="i"
-	    >
 
-	    <img v-bind:src="card.images.low_resolution.url" v-bind:alt="card.caption.text" class="fuild-img" />
-	  </li>
-	</ul>
+
+<div>
+	
+	    	<inst-media-item v-for="(item, i) in instmedialist"
+	    					 :instmedialistitem="item"
+	    					 v-bind:key="i"/>
+
+
+	  
+	
+</div>
 </template>
 
 <script>
+import AppInstMediaItem from './AppInstMediaItem.vue';
+
 	export default {
   		name: 'InstMedia',
-  		props: ['instmedialist']
-  	}
+  		props: ['instmedialist'],
+  		components: {
+  			'inst-media-item': AppInstMediaItem
+  		},// components
+  	}// export
 </script>

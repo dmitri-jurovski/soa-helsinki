@@ -1,7 +1,9 @@
 <template>
   <div>
     
-<app-header></app-header>
+<app-header
+  
+></app-header>
 
 <inst-media
   :instmedialist = 'media'
@@ -38,6 +40,7 @@ export default {
   name: 'instApp',
   data () {
     return {
+      title: 'soa helsinki',
       media: []
     }
   },
