@@ -1,16 +1,21 @@
 <template>
 
 
-<div>
+ 	<b-container>
+    <b-card-group columns>
+
 	
-	    	<inst-media-item v-for="(item, i) in instmedialist"
-	    					 :instmedialistitem="item"
-	    					 v-bind:key="i"/>
+	<inst-media-item 
+		v-for="(item, i) in instmedialist"
+	    :instmedialistitem="item"
+	    v-bind:key="i"
+	/>
 
 
 	  
 	
-</div>
+</b-card-group>
+</b-container>
 </template>
 
 <script>

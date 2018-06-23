@@ -1,13 +1,9 @@
 <template>
   <div>
     
-<app-header
-  
-></app-header>
+<app-header></app-header>
 
-<inst-media
-  :instmedialist = 'media'
-/>
+<inst-media :instmedialist = 'media'/>
 
 
     
@@ -34,6 +30,8 @@ import AppInstMedia from './AppInstMedia.vue';
 
 const token = '7562922180.1677ed0.fc4e273eea1049be86e4a335cb642dbc';
 const insUrl = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + token;
+
+
 
 
 export default {
