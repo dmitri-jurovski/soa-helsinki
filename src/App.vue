@@ -1,7 +1,13 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }} + Tasr</h1>
+  <div>
+    
+<app-header></app-header>
+
+<inst-media
+  :instmedialist = 'media'
+/>
+
+
     
     <h2>Essential Links</h2>
     <ul>
@@ -21,24 +27,58 @@
 </template>
 
 <script>
+import AppHeader from './AppHeader.vue';
+import AppInstMedia from './AppInstMedia.vue';
+
+const token = '7562922180.1677ed0.fc4e273eea1049be86e4a335cb642dbc';
+const insUrl = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + token;
+
+
 export default {
-  name: 'app',
+  name: 'instApp',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      media: []
     }
-  }
+  },
+
+  components: {
+    'app-header': AppHeader,
+    'inst-media': AppInstMedia
+  },
+
+  created: function () {
+      axios.get(insUrl)
+      .then(response => {
+        // JSON responses are automatically parsed.
+        this.media = response.data.data;
+
+        // this.media.forEach(function (currentValue, index, array) {
+        //     Vue.set(array[index],  'viewMode',  false );
+        //     console.log("This media", this.media);
+        // });
+        
+      })
+      .catch(error => console.log(error))
+
+    }
 }
 </script>
 
 <style lang="scss">
-#app {
+
+body {
+  background: #f5f5f5;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  
+}
+#navbarHeader {
+  max-height: 100vw;
+    overflow: hidden;
 }
 
 h1, h2 {
