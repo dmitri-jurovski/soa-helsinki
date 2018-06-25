@@ -2,13 +2,13 @@
 	
 			 
 	
-			 <b-card 
-          :img-src="instmedialistitem.images.low_resolution.url"
-          img-alt="Image"
-          img-top
-          tag="article"
-          
-          class=" box-shadow">
+<b-card overlay
+		img-fluid
+        :img-src="instmedialistitem.images.standard_resolution.url"
+      	img-alt="Image"
+      	img-top
+      	tag="article"
+      	class=" box-shadow">
     <p class="card-text">{{ instmedialistitem.caption.text }}</p>
     
   </b-card>
@@ -24,3 +24,7 @@ console.log("test log");
   }
 
 </script>
+
+<style lang="scss">
+	
+</style>
